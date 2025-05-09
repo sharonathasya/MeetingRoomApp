@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  roomservice:
+    build:
+      context: ./RoomService
+      dockerfile: Dockerfile
+    ports:
+      - "5001:80"
+    networks:
+      - microservices-network
+    depends_on:
+      - roomservice
+
+  userservice:
+    build:
+      context: ./UserService
+      dockerfile: Dockerfile
+    ports:
+      - "5002:80"
+    networks:
+      - microservices-network
+      depends_on:
+      - userservice
+
+   bookingservice:
+    build:
+      context: ./BookingService
+      dockerfile: Dockerfile
+    ports:
+      - "5003:80"
+    networks:
+      - microservices-network
+      depends_on:
+      - bookingservice
+
+
+networks:
+  microservices-network:
+    driver: bridge

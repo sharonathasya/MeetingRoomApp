@@ -1,0 +1,20 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AppSettings": {
+    "Secret": "b4e8a5c7e4d5a6219b4f3c7d9e7f3e5f71a2e4e1e8c5b7d6a2f8d9b3c7e1f4a5",
+    "Issuer": "https://www.meetingroom.co.id/",
+    "SecretKey": "YourSuperSecretKeyHere123!@#",
+    "TokenLifetime": "3000",
+    "Audience": "UserService"
+  },
+  "ConnectionStrings": {
+    "ApiContext": "Server=localhost;Initial Catalog=dbMeeting;User ID=sa;Password=sapassword;multipleactiveresultsets=true;TrustServerCertificate=True"
+  },
+  "AllowedHosts": "*"
+}
+
