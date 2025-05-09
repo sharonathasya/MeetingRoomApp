@@ -1,4 +1,4 @@
-Hotel Booking System - Full Stack Web Application
+Hotel Booking System - Back End mini project
 
 This project is a Meeting Room Booking System backend microservices. It’s built with .NET 8.
 
