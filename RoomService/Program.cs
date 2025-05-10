@@ -6,13 +6,11 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
 using MeetingRoomApp.Data.Models;
 using Microsoft.Extensions.Configuration;
-using UserService.Helpers;
-using UserService.Interfaces;
-using UserService.ViewModels;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using UserService.Impl;
 using RoomService.Interfaces;
 using RoomService.Impl;
+using RoomService.ViewModels;
+using RoomService.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -59,7 +57,7 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddDbContext<dbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ApiContext")));
 
 builder.Services.AddTransient<ITokenManager, TokenManager>();
-builder.Services.AddTransient<IAccountService, AccountService>();
+//builder.Services.AddTransient<IAccountService, AccountService>();
 builder.Services.AddTransient<IRoomService, RoomServices>();
 
 builder.Services.AddDataProtection()

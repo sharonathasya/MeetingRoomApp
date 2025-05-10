@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Sharon\BookingMeetingAppPublish\Room</_PublishTargetUrl>
-    <History>False|2025-05-09T03:36:43.8627902Z||;False|2025-05-09T10:33:57.4760120+07:00||;</History>
+    <History>True|2025-05-10T10:14:51.0352497Z||;True|2025-05-10T14:13:16.8175827+07:00||;False|2025-05-09T10:36:43.8627902+07:00||;False|2025-05-09T10:33:57.4760120+07:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

@@ -9,6 +9,6 @@ namespace MeetingRoomApp.Data.Models
         public string? RoomName { get; set; }
         public string? Description { get; set; }
         public DateTime? CreatedAt { get; set; }
-        public virtual Booking Booking { get; set; }
+        public ICollection<Booking> Bookings { get; set; }
     }
 }

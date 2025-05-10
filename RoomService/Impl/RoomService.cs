@@ -2,9 +2,8 @@
 using RoomService.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using MeetingRoomApp.Data.Models;
-using UserService.Helpers;
-using UserService.ViewModels;
 using Microsoft.Extensions.Options;
+using RoomService.Helpers;
 
 namespace RoomService.Impl
 {

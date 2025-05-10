@@ -1,9 +1,9 @@
 ﻿using BookingService.Interfaces;
 using BookingService.ViewModels;
 using Microsoft.EntityFrameworkCore;
-using UserService.Helpers;
 using MeetingRoomApp.Data.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
+using MeetingRoomAppService.Helpers;
 
 namespace BookingService.Impl
 {

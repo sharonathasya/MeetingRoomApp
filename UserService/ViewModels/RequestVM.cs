@@ -18,6 +18,7 @@
         public bool? Gender { get; set; }
         public DateTime? BirthDate { get; set; }
         public string Address { get; set; }
+        public int? RoleId { get; set; }
 
     }
     public class ReqIdUser

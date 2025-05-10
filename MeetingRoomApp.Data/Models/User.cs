@@ -16,6 +16,6 @@ namespace MeetingRoomApp.Data.Models
         public DateTime? CreatedTime { get; set; }
        // public int? AccountId { get; set; }
         public virtual Account Account { get; set; }
-        public virtual Booking Booking { get; set; }
+        public ICollection<Booking> Bookings { get; set; }
     }
 }

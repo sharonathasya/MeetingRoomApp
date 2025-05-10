@@ -53,6 +53,7 @@ namespace UserService.Impl
                     {
                         UserId = getUserId.UserId,
                         Username = request.Username,
+                        Email = request.Email,
                         Password = hashedPass,
                         CreatedTime = aDate,
                         IsActive = true
@@ -64,7 +65,7 @@ namespace UserService.Impl
                     AccountRole accRole = new AccountRole
                     {
                         AccountId = (int)getAccId.Id,
-                        RoleId = 2
+                        RoleId = request.RoleId
                     };
                     _dbContext.AccountRole.Add(accRole);
                     _dbContext.SaveChanges();

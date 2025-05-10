@@ -6,12 +6,11 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
 using MeetingRoomApp.Data.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using UserService.Helpers;
-using UserService.Interfaces;
-using UserService.Impl;
-using UserService.ViewModels;
 using BookingService.Interfaces;
 using BookingService.Impl;
+using MeetingRoomAppService.Helpers;
+using MeetingRoomAppService.ViewModels;
+using MeetingRoomApp.Data.Db;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -58,7 +57,7 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddDbContext<dbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ApiContext")));
 
 builder.Services.AddTransient<ITokenManager, TokenManager>();
-builder.Services.AddTransient<IAccountService, AccountService>();
+//builder.Services.AddTransient<IAccountService, AccountService>();
 builder.Services.AddTransient<IBookingService, BookingServices>();
 
 builder.Services.AddDataProtection()
@@ -101,6 +100,13 @@ builder.Services.AddAuthentication(x =>
 
 
 var app = builder.Build();
+
+// Seed the database
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<dbContext>();
+    DbInitializer.Seed(context);
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

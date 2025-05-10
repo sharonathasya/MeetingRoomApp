@@ -15,7 +15,7 @@ namespace MeetingRoomApp.Data.Models
         public virtual DbSet<TblMasterRole> TblMasterRole { get; set; }
         public virtual DbSet<TblSystemParameter> TblSystemParameter { get; set; }
 
-        
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -29,15 +29,28 @@ namespace MeetingRoomApp.Data.Models
                 .WithMany(u => u.AccountRoles)
                 .HasForeignKey(a => a.AccountId);
 
+            modelBuilder.Entity<AccountRole>()
+                .HasOne(a => a.TblMasterRole)
+                .WithMany(u => u.AccountRoles)
+                .HasForeignKey(a => a.RoleId);
+
             modelBuilder.Entity<Booking>()
                 .HasOne(a => a.User)
-                .WithOne(u => u.Booking)
-                .HasForeignKey<Booking>(a => a.UserId);
+                .WithMany(u => u.Bookings)
+                .HasForeignKey(a => a.UserId);
+
+            modelBuilder.Entity<Booking>()
+           .HasIndex(b => b.UserId)
+           .IsUnique(false);
 
             modelBuilder.Entity<Booking>()
                 .HasOne(a => a.MeetingRoom)
-                .WithOne(u => u.Booking)
-                .HasForeignKey<Booking>(a => a.MeetingRoomId);
+                .WithMany(u => u.Bookings)
+                .HasForeignKey(a => a.MeetingRoomId);
+
+            modelBuilder.Entity<Booking>()
+            .HasIndex(b => b.MeetingRoomId)
+            .IsUnique(false);
 
         }
     }

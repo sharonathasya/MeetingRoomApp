@@ -7,6 +7,6 @@ namespace MeetingRoomApp.Data.Models
         [Key]
         public int Id { get; set; }
         public string RoleName { get; set; } = string.Empty;
-        public AccountRole AccountRole { get; set; }
+        public ICollection<AccountRole> AccountRoles { get; set; } = new List<AccountRole>();
     }
 }
